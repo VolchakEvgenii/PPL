@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+@import "variables.scss";
+
+body {background: #eeeeee;}
+p {color: $text-black-500;}
+
+.p-16 {padding: 16px;}
+.p-32 {padding: 32px;}
+
+.error-text {color: $text-red-400}
+
+.input-hint{
+    margin: 0;
+    padding: 5px;
+    line-height: 1.2;
+    font-size: 11px;
+    color: $text-black-500;
+}
+
+.container-1000 {
+    width: 100%;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.page-header {
+    margin: 0 auto;
+    font-size: 20px;
+    color: $text-black-800;
+}
+
