@@ -1,0 +1,21 @@
+@import "../../../scss/variables.scss";
+
+.wrap-navbar {
+    background: $blue-600;
+    .navbar {
+        .nav-link {
+            color: $white;
+        }
+        .nav-link.active {
+            color: $grey-400;
+        }
+        .nav-item:hover {
+            .nav-link {
+                color: $grey-500;
+            }
+        }
+        .navbar-toggler {
+            background-color: $grey-100;
+        }
+    }
+}

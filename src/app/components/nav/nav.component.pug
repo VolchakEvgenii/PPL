@@ -1,0 +1,25 @@
+.wrap-navbar
+    .container-1000
+        nav.navbar.navbar-expand-lg.navbar-light
+            a.navbar-brand(routerLink="/container-story")
+                img.navbar-brand-logo(src="http://www.ppl33-35.com/wp-content/uploads/2016/06/logo80x80.png" alt="Placke Logo")
+
+            button.navbar-toggler.navbar-toggler-right(
+                type="button"
+                data-toggle="collapse"
+                data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent"
+                aria-expanded="false"
+                aria-label="Toggle navigation")
+                span.navbar-toggler-icon
+
+            #navbarSupportedContent.collapse.navbar-collapse
+                ul.navbar-nav.mr-auto
+                    li.nav-item
+                        a.nav-link(
+                            [routerLink]=["/container-story"],
+                            routerLinkActive="active") Container Story
+                    li.nav-item
+                        a.nav-link(
+                            [routerLink]=["/about"],
+                            routerLinkActive="active") About
