@@ -1,0 +1,39 @@
+.section
+    .section-name
+        | General Info
+    .section-content.container
+        .column
+            .col
+                span(*ngIf="hasModel()") Container ID:
+                    span.text-bold {{getContainerModel().getId()}}
+                span(*ngIf="!hasModel()") Container ID: N/A
+            .col
+                span(*ngIf="hasModel()") Owner:
+                    span.text-bold {{getContainerModel().getOwner()}}
+                span(*ngIf="!hasModel()") Owner: N/A
+
+.section
+    .section-name
+        | History Info
+    .section-content
+        .wrap-container-info-table
+            ul.container-info-table
+                li.row.table-header-row
+                    .col(*ngFor="let th of tableHeaders")
+                        span.table-header-cell {{th}}
+                li.row.table-row-empty.p-16(*ngIf="!hasModel()")
+                    .col
+                        span The History list is empty
+                li.row(*ngFor="let historyItem of getContainerHistory()")
+                    .col-2
+                        span.table-cell(*ngIf="historyItem.dateFrom") {{historyItem.dateFrom}}
+                    .col-2
+                        span.table-cell(*ngIf="historyItem.dateTo") {{historyItem.dateTo}}
+                    .col-2
+                        span.table-cell(*ngIf="historyItem.sourcePort") {{historyItem.sourcePort}}
+                    .col-2
+                        span.table-cell(*ngIf="historyItem.destinationPort") {{historyItem.destinationPort}}
+                    .col-2
+                        span.table-cell(*ngIf="historyItem.sender") {{historyItem.sender}}
+                    .col-2
+                        span.table-cell(*ngIf="historyItem.recipient") {{historyItem.recipient}}

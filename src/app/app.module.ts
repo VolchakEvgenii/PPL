@@ -10,7 +10,9 @@ import {ContainerStoryComponent} from './pages/container-story/container-story.c
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {RestangularModule} from 'ngx-restangular';
-import {ApiService, RestangularConfigFactory} from './services/api.service';
+import {ApiService, RestangularConfigFactory} from './shared/services/api.service';
+import {ApiV2Service} from './shared/services/apiV2.service';
+import {ContainerInfoComponent} from './pages/container-story/components/container-info/container-info.component';
 
 
 @NgModule({
@@ -18,7 +20,8 @@ import {ApiService, RestangularConfigFactory} from './services/api.service';
         AppComponent,
         NavComponent,
         AboutComponent,
-        ContainerStoryComponent
+        ContainerStoryComponent,
+        ContainerInfoComponent
     ],
     imports: [
         BrowserModule,
@@ -27,10 +30,10 @@ import {ApiService, RestangularConfigFactory} from './services/api.service';
         FormsModule,
         ReactiveFormsModule,
         RestangularModule.forRoot(RestangularConfigFactory),
-
     ],
     providers: [
         ApiService,
+        ApiV2Service,
     ],
     bootstrap: [AppComponent]
 })

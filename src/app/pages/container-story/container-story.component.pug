@@ -1,28 +1,25 @@
 h1.page-header.p-16 Search Container History
 
-.form-group.row
-    .col-md-6.p-16
-        form(
-            [formGroup]="containerForm",
-            (ngSubmit)="onFormSubmit()")
-            .form-group
-                p.input-hint Please Note! The container number must have 4 first characters as uppercase latin symbols and rest 7 characters as positive digits! Example: ABCD1234567
-                input.form-control(
-                    required,
-                    formControlName="number",
-                    placeholder="Enter Container Number",
-                    [ngClass]="{ 'is-invalid': submitted && getContainer.number.errors }")
+.container
+    .row
+        .col-6
+            form(
+                [formGroup]="containerForm",
+                (ngSubmit)="onFormSubmit()")
+                .form-group
+                    p.input-hint Please Note! The container number must have 4 first characters as uppercase latin symbols and rest 7 characters as positive digits! Example: ABCD1234567
+                    input.form-control(
+                        required,
+                        formControlName="number",
+                        placeholder="Enter Container Number",
+                        [ngClass]="{ 'is-invalid': submitted && getContainerForm.number.errors }")
 
-                //div.invalid(*ngIf="submitted && getContainer.number.errors")
-                //    div(*ngIf="getContainer.number.errors.required")
-                //        | Container Number is required
-                //    div(*ngIf="getContainer.number.errors.pattern || getContainer.number.hasError('maxlength') || getContainer.number.hasError('minlength')")
-                //        | Container Number must be 9 numbers
-                div.invalid(*ngIf="submitted && getContainer.number.errors")
-                    div(*ngIf="getContainer.number.errors.required")
-                        p.error-text Container Number is required!
-                    div(*ngIf="getContainer.number.errors.pattern")
-                        p.error-text Container Number invalid!
+                    div.invalid(*ngIf="submitted && getContainerForm.number.errors")
+                        div(*ngIf="getContainerForm.number.errors.required")
+                            p.error-text Container Number is required!
+                        div(*ngIf="getContainerForm.number.errors.pattern")
+                            p.error-text Container Number invalid!
+                input(type="submit" value="Search")
 
-            input(type="submit" value="Search")
-
+.container
+    app-container-info([containerModel]="getContainerModel()")

@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Restangular} from 'ngx-restangular';
-import {environment} from '../../environments/environment';
+import {environment} from '../../../environments/environment';
 
 let RestangularP;
 
@@ -12,14 +12,12 @@ export function RestangularConfigFactory(RestangularProvider) {
 function setHeaders(restangular) {
     restangular.setDefaultHeaders({
         'Accept': 'application/json',
-        // 'Authorization': 'Token ' + queryToken,
-        // 'X-Auth-Client-Key': clientKey
     });
 }
 
 @Injectable()
 export class ApiService {
-    constructor(private restangular: Restangular) {
+    constructor(public restangular: Restangular) {
         setHeaders(RestangularP);
     }
 
